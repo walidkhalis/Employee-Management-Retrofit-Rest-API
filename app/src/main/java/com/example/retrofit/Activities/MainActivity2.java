@@ -1,8 +1,6 @@
-package com.example.retrofit;
+package com.example.retrofit.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,16 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.retrofit.Model.Employee;
+import com.example.retrofit.R;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.pm.PackageInstaller.EXTRA_SESSION_ID;
 
@@ -70,7 +61,7 @@ public class MainActivity2 extends AppCompatActivity {
         vacation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(MainActivity2.this,Vacation.class);
+                Intent intent =new Intent(MainActivity2.this, Vacation.class);
                 intent.putExtra("sampleObject", emp);
                 startActivity(intent);
             }
@@ -78,7 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
         doc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(MainActivity2.this,DocumentActivity.class);
+                Intent intent =new Intent(MainActivity2.this, DocumentActivity.class);
                 intent.putExtra("sampleObject", emp);
                 startActivity(intent);
             }

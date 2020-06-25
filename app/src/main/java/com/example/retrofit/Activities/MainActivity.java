@@ -1,4 +1,4 @@
-package com.example.retrofit;
+package com.example.retrofit.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.retrofit.JsonPlaceHolderApi;
+import com.example.retrofit.Model.Echelon;
+import com.example.retrofit.R;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http://192.168.1.6:8080/springboot-crud-rest/api/v1/")
+                .baseUrl("http://192.168.1.4:8080/springboot-crud-rest/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         jsonPlaceHolderApi= retrofit.create(JsonPlaceHolderApi.class);
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                                 String echelle=post.getId_echelon().getId_echelle().getLib_echelle();
                                 String image=post.getEmployee().getImage();
                                 String conten = String.valueOf(post.getEmployee().getGrade());
-                                Intent intent =new Intent(MainActivity.this,MainActivity2.class);
+                                Intent intent =new Intent(MainActivity.this, MainActivity2.class);
                                 intent.putExtra(EXTRA_SESSION_ID, hel);
                                 intent.putExtra(EXTRA_MESSAGE, conten);
                                 intent.putExtra("ville", ville);

@@ -1,9 +1,10 @@
-package com.example.retrofit;
+package com.example.retrofit.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Permission {
+public class Document {
+
     private int id;
 
     @SerializedName("motif")
@@ -12,15 +13,6 @@ public class Permission {
     @SerializedName("type")
     @Expose
     private String type;
-    @SerializedName("dateDebut")
-    @Expose
-    private String dateDebut;
-    @SerializedName("dateFin")
-    @Expose
-    private String dateFin;
-    @SerializedName("dateReprise")
-    @Expose
-    private String dateReprise;
     @SerializedName("employee")
     @Expose
     private Employee employee;
@@ -28,14 +20,15 @@ public class Permission {
     @Expose
     private String status;
 
-    public Permission(Employee employee,String dateDebut,String dateReprise,String dateFin,String motif,String type,String status) {
+    public Document(Employee employee,String motif,String type,String status) {
         this.employee = employee;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateReprise;
-        this.dateReprise = dateFin;
         this.oui = motif;
         this.type=type;
         this.status=status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setMotif(String motif) {
@@ -56,18 +49,6 @@ public class Permission {
 
     public String getType() {
         return type;
-    }
-
-    public String getDateDebut() {
-        return dateDebut;
-    }
-
-    public String getDateFin() {
-        return dateFin;
-    }
-
-    public String getDateReprise() {
-        return dateReprise;
     }
 
 

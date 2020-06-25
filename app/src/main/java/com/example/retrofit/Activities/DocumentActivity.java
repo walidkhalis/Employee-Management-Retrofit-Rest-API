@@ -1,27 +1,20 @@
-package com.example.retrofit;
+package com.example.retrofit.Activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import com.example.retrofit.JsonPlaceHolderApi;
+import com.example.retrofit.Model.Document;
+import com.example.retrofit.Model.Employee;
+import com.example.retrofit.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,7 +43,7 @@ public class DocumentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final Employee current = (Employee) getIntent().getSerializableExtra("sampleObject");
                 Retrofit retrofit=new Retrofit.Builder()
-                        .baseUrl("http://192.168.1.6:8080/springboot-crud-rest/api/v1/")
+                        .baseUrl("http://192.168.1.4:8080/springboot-crud-rest/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
                 jsonPlaceHolderApi=retrofit.create(JsonPlaceHolderApi.class);

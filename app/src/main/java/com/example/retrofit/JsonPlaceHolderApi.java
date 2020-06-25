@@ -1,5 +1,9 @@
 package com.example.retrofit;
 
+import com.example.retrofit.Model.Document;
+import com.example.retrofit.Model.Echelon;
+import com.example.retrofit.Model.Permission;
+
 import java.util.List;
 
 import retrofit2.Call;

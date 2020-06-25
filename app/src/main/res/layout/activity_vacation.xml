@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Vacation">
+    tools:context=".Activities.Vacation">
     <TextView
         android:id="@+id/logo"
         android:layout_width="wrap_content"

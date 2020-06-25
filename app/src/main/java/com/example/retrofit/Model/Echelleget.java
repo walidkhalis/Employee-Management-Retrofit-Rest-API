@@ -1,4 +1,4 @@
-package com.example.retrofit;
+package com.example.retrofit.Model;
 
 public class Echelleget {
     private String lib_echelle;

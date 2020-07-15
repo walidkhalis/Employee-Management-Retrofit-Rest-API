@@ -1,5 +1,8 @@
 package com.example.retrofit.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
@@ -7,8 +10,10 @@ public class Employee implements Serializable {
     private int id;
     private String firstName;
     private String lastName;
+    @SerializedName("image")
+    @Expose
     private String image;
-    private int grade;
+    private String grade;
     private int tel;
     private String cin;
     private String ville;
@@ -39,7 +44,7 @@ public class Employee implements Serializable {
         return lastName;
     }
 
-    public int getGrade() {
+    public String getGrade() {
         return grade;
     }
 

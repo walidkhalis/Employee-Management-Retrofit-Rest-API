@@ -3,6 +3,7 @@ package com.example.retrofit.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText;
     private Button button;
     public final static String EXTRA_MESSAGE = "com.example.retrofit.MESSAGE";
-    private static final String CHANNEL_ID = "my_channel_01";
     private JsonPlaceHolderApi jsonPlaceHolderApi;
 
     @Override
@@ -47,15 +47,17 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Echelon>> call, Response<List<Echelon>> response) {
                 List<Echelon> posts= response.body();
                 for(Echelon post:posts){
-                    int x=Integer.parseInt(editText.getText().toString());
-                            int hello = Integer.parseInt(post.getEmployee().getCin());
-                            if(hello==x){
+                    String x=editText.getText().toString();
+                    String hello = post.getEmployee().getCin();
+                            if(hello.equals(x)){
                                 String hel = post.getEmployee().getLastName();
                                 String echelon=post.getId_echelon().getLib_echelon();
                                 float note=post.getNote_moyenne();
                                 String ville=post.getEmployee().getService().getName();
                                 String echelle=post.getId_echelon().getId_echelle().getLib_echelle();
-                                String image=post.getEmployee().getImage();
+                                final String image=post.getEmployee().getImage();
+                                String cleanImage = image.replace(image.substring(0,image.indexOf(",")), "");
+                                final byte[] decodedBytes = Base64.decode(cleanImage, Base64.DEFAULT);
                                 String conten = String.valueOf(post.getEmployee().getGrade());
                                 Intent intent =new Intent(MainActivity.this, MainActivity2.class);
                                 intent.putExtra(EXTRA_SESSION_ID, hel);
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("ville", ville);
                                 intent.putExtra("email", echelon);
                                 intent.putExtra("tel", echelle);
-                                intent.putExtra("image", image);
+                                intent.putExtra("image", decodedBytes);
                                 intent.putExtra("rate", note);
                                 intent.putExtra("sampleObject", post.getEmployee());
                                 startActivity(intent);
@@ -75,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-
-
             }});
         }
 

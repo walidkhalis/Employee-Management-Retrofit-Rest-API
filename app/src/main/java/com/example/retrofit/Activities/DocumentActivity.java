@@ -27,7 +27,6 @@ public class DocumentActivity extends AppCompatActivity {
     private Spinner spinner;
     private EditText motif;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
-    private static final String TAG = Vacation.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,6 @@ public class DocumentActivity extends AppCompatActivity {
                     public void onResponse(Call<Document> call, Response<Document> response) {
                         if(!response.isSuccessful()){
                             Toast.makeText(DocumentActivity.this,"failed",Toast.LENGTH_SHORT).show();
-
                         }
                     }
                     @Override

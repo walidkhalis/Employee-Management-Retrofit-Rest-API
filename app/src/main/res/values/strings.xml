@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">retrofit</string>
     <string-array name="planets_array">
-        <item>Congé administratif</item>
-        <item>Congé maladie</item>
-        <item>Congé exceptionnel</item>
-        <item>Congé maternité</item>
-        <item>Mise à disposition</item>
+        <item>Absence</item>
+        <item>Retard</item>
+        <item>Congé</item>
+        <item>Congé Maternité ou Paternité</item>
+        <item>Absence pour marriage, naissance ou décès d\'un proche</item>
     </string-array>
     <string-array name="doc">
         <item>Attestation de travail</item>

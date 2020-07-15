@@ -3,12 +3,15 @@ package com.example.retrofit.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.retrofit.Model.Employee;
 import com.example.retrofit.R;
 import com.squareup.picasso.Picasso;
@@ -45,19 +48,18 @@ public class MainActivity2 extends AppCompatActivity {
         String message=intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String vil=intent.getStringExtra("ville");
         String em=intent.getStringExtra("email");
-        String imag=intent.getStringExtra("image");
-        String statut=intent.getStringExtra("statut");
+        final byte[] imag=intent.getByteArrayExtra("image");
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(imag, 0, imag.length);
         float rat=getIntent().getFloatExtra("rate",0);
         String ech=getIntent().getStringExtra("tel");
         final Employee emp = (Employee )getIntent().getSerializableExtra("sampleObject");
-        final Employee emp1 = (Employee )getIntent().getSerializableExtra("Object");
-        firstname.setText("Bonjour M. "+hello);
+        firstname.setText("Bonjour "+hello);
         ville.setText(vil);
         grade.setText(message);
         email.setText(em);
         phone.setText(ech);
         rate.setText(String.valueOf(rat));
-        Picasso.get().load(imag).noFade().into(img);
+        img.setImageBitmap(decodedByte);
         vacation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

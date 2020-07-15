@@ -40,7 +40,6 @@ public class Vacation extends AppCompatActivity {
     private EditText dater;
     private EditText motif;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
-    private static final String TAG = Vacation.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

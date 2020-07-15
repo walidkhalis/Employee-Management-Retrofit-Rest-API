@@ -15,7 +15,7 @@
         <activity android:name=".Activities.Vacation" />
         <activity
             android:name=".Activities.MainActivity2"
-            android:parentActivityName=".Activities.MainActivity" />
+             />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
